@@ -12,28 +12,28 @@
         <canvas id="myChart" width="600" height="300"></canvas>
     </div>
 
-    <script type="application/javascript">
-        const dataFromFlask = JSON.parse('{{ data | tojson | safe }}');
-        
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: dataFromFlask.labels,
-                datasets: [{
-                    label: 'Scores',
-                    data: dataFromFlask.values,
-                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                scales: {
-                    y: { beginAtZero: true }
-                }
+<script type="application/javascript">
+    const dataFromFlask = JSON.parse('{{ data | tojson | safe }}');
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: dataFromFlask.labels,
+            datasets: [{
+                label: 'Scores',
+                data: dataFromFlask.values,
+                backgroundColor: dataFromFlask.colors,
+                borderColor: dataFromFlask.colors,
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                y: { beginAtZero: true }
             }
-        });
-    </script>
+        }
+    });
+</script>
 </body>
 </html>
