@@ -11,8 +11,9 @@
         <canvas id="myChart" width="600" height="300"></canvas>
     </div>
 
-    <script>
-        const dataFromFlask = {{ data | tojson }};
+    <!-- Safe Jinja to JS conversion -->
+    <script type="application/javascript">
+        const dataFromFlask = JSON.parse('{{ data | tojson | safe }}');
         
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
