@@ -4,10 +4,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # Sample data for visualization
     data = {
-        "labels": ["Math", "Science", "English", "History", "Art"],
-        "values": [88, 75, 90, 70, 95]
+        "labels": ["Python", "C++", "C", "MongoDB", "SQL", "MySQL"],
+        "values": [92, 85, 78, 80, 88, 90]
     }
     return render_template('index.html', data=data)
 
